@@ -1,61 +1,64 @@
 package two;
 
 import java.util.Random;
-// класс для собак
+
 public class Dog {
-	public String name;
-	public String size;
-	public int age;
-	
-	public Dog(String name, String size, int age) {
+
+	String name;
+	private String size;
+	private int age;
+
+	private Dog(String name, String size, int age) {
 		setName(name);
 		setSize(size);
 		setAge(age);
 	}
 
-	public Dog(String name, String size) {
+	Dog(String name, String size) {
 		this(name,size,0);
 	}
 
-	public Dog(String name) {
+	Dog(String name) {
 		this(name, null, 0);
 	}
-	public Dog(){
+
+	Dog(){
 		this(null, null, 0);
 	}
-	public String getName() {
+
+	String getName() {
         return name;
     }
-	public String getSize() {
+	String getSize() {
         return size;
     }
-	public int getAge() {
+	int getAge() {
         return age;
     }
-    public void setName(String name) {
+
+	private void setName(String name) {
         if (name != null){
         	this.name = name;
         }
         else {
-        	String [] Names = {"Flash","Captain","Leo","Fluffy","Chewie"};
+        	String[] Names = {"Flash","Captain","Leo","Fluffy","Chewie"};
 			Random r = new Random();
 			int nameNumber = r.nextInt (Names.length);
-			String Name = Names [nameNumber];
-			this.name = Name;
+			this.name = Names[nameNumber];
 			}
     }
 
-    public void setSize(String size) {
+	private void setSize(String size) {
     	if (size!=null){
         	this.size = size;}
         else {
     	String [] sizes = {"Small", "Medium", "HulkSize"};
         Random pes = new Random();
         int select = pes.nextInt(sizes.length); 
-        String sizeRandomized = sizes[select];
-        this.size = sizeRandomized;}
+        this.size = sizes[select];}
     }
-    	public void setAge(int age) {
+
+	private void setAge(int age) {
     		if (age != 0){
             	this.age = age;}
             else {
@@ -66,8 +69,9 @@ public class Dog {
             	this.age = ageHere;
             }
         }
-    	 @Override
-    	    public String toString() {
+
+	@Override
+	public String toString() {
     	        return "Dog {Name: '" + name + "', Size: '" + size + "', Age: '" + age + "'}";
     	    }	
 }
