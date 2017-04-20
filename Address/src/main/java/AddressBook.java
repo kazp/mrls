@@ -5,6 +5,10 @@ import java.util.Scanner;
  */
 class AddressBook {
 
+    public String getFirstName() {
+        return firstName;
+    }
+
     private String firstName;
     private String lastName;
     private int postalCode; //could be Integer if arraylist can't handle primitive types, but it will be arraylist of objects AddressBook. Will see...
@@ -15,12 +19,18 @@ class AddressBook {
     private int phoneNumber;
     Scanner scanner = new Scanner(System.in);
 
-     String enterName(){
-        System.out.print("Please enter a first name");
-        String enteredFirstName = scanner.nextLine();
-        if (enteredFirstName.matches("[a-zA-Z]+")){
 
+
+    String enterName() {
+        System.out.print("Please enter a first name");
+        //String enteredFirstName = scanner.nextLine();
+        if (scanner.hasNext("[a-zA-Z]+")) {
+            firstName = scanner.nextLine();
         }
+        return firstName;
+    }
+
+}
 
 
 
